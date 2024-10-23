@@ -1,0 +1,38 @@
+{
+  "profiles": {
+    "Container (Dockerfile)": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "environmentVariables": {
+        "ASPNETCORE_HTTP_PORTS": "8080",
+        "HOST": "localhost,1433",
+        "BASE": "CinemaDB",
+        "USER": "sa",
+        "PASSWORD": "A1b2c3d4@"
+      },
+      "publishAllPorts": true
+    },
+    "CinemaAPI": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:5000/swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "HOST": "localhost",
+        "BASE": "CinemaDB",
+        "USER": "sa",
+        "PASSWORD": "A1b2c3d4@"
+      }
+    }
+  },
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:44017",
+      "sslPort": 0
+    }
+  }
+}
