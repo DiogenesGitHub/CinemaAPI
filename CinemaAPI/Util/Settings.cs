@@ -19,7 +19,7 @@
         // Método para construir a string de conexão
         public static string GetConnectionString()
         {
-            return $"Server={_host};Database={_base};User  Id={_user};Password={_password};";
+            return $"Server={_host};Database={_base};User  Id={_user};Password={_password}; Trusted_Connection=False;";
         }
     }
 }
