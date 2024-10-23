@@ -6,10 +6,10 @@
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
       "environmentVariables": {
         "ASPNETCORE_HTTP_PORTS": "8080",
-        "HOST": "localhost",
+        "HOST": "localhost,1433",
         "BASE": "CinemaDB",
-        "USER": "admin",
-        "PASSWORD": "a1b2c3d4@"
+        "USER": "sa",
+        "PASSWORD": "A1b2c3d4@"
       },
       "publishAllPorts": true
     },
@@ -21,8 +21,8 @@
         "ASPNETCORE_ENVIRONMENT": "Development",
         "HOST": "localhost",
         "BASE": "CinemaDB",
-        "USER": "admin",
-        "PASSWORD": "a1b2c3d4@"
+        "USER": "sa",
+        "PASSWORD": "A1b2c3d4@"
       }
     }
   },
