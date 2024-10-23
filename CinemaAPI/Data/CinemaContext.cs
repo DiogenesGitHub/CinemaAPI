@@ -1,8 +1,6 @@
 ﻿using CinemaAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
-
-
 namespace CinemaAPI.Data
 {
     public class CinemaContext : DbContext
@@ -12,19 +10,21 @@ namespace CinemaAPI.Data
         public DbSet<Exibicao> Exibicoes { get; set; }
         public DbSet<Sessao> Sessoes { get; set; }
 
+        // Construtor que aceita uma string de conexão
+        public CinemaContext(DbContextOptions<CinemaContext> options) : base(options)
+        {
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Configuração da tabela Filme
             modelBuilder.Entity<Filme>()
                 .ToTable("Filmes")
                 .HasKey(f => f.Id);
 
-            // Configuração da tabela Sala
             modelBuilder.Entity<Sala>()
                 .ToTable("Salas")
                 .HasKey(s => s.Id);
 
-            // Configuração da tabela Exibicao
             modelBuilder.Entity<Exibicao>()
                 .ToTable("Exibicoes")
                 .HasKey(e => e.Id);
@@ -39,7 +39,6 @@ namespace CinemaAPI.Data
                 .WithMany(s => s.Exibicoes)
                 .HasForeignKey(e => e.SalaId);
 
-            // Configuração da tabela Sessao
             modelBuilder.Entity<Sessao>()
                 .ToTable("Sessoes")
                 .HasKey(ses => ses.Id);

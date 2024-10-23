@@ -1,13 +1,16 @@
-using Microsoft.EntityFrameworkCore; 
+using Microsoft.EntityFrameworkCore;
 using CinemaAPI.Data;
 using CinemaAPI.Util;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+Settings.Initialize(builder.Configuration);
+
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<CinemaContext>(options =>
-    options.UseSqlServer("sua_string_de_conexão_aqui")); 
+    options.UseSqlServer(Settings.GetConnectionString())); 
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -23,7 +26,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapHealthChecks("/health"); 
+app.MapHealthChecks("/health");
 
 app.UseAuthorization();
 

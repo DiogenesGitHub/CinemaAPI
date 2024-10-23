@@ -12,27 +12,25 @@ namespace CinemaAPI.Util
             _context = context;
         }
 
-        public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
+        public async Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
         {
-
             try
             {
-                var canConnect = _context.Database.CanConnectAsync(cancellationToken).Result;
+                var canConnect = await _context.Database.CanConnectAsync(cancellationToken);
 
                 if (canConnect)
                 {
-                    return Task.FromResult(HealthCheckResult.Healthy("O serviço está saudável."));
+                    return HealthCheckResult.Healthy("O serviço está saudável.");
                 }
                 else
                 {
-                    return Task.FromResult(HealthCheckResult.Unhealthy("O serviço não está saudável."));
+                    return HealthCheckResult.Unhealthy("O serviço não está saudável.");
                 }
             }
             catch (Exception ex)
             {
-                return Task.FromResult(HealthCheckResult.Unhealthy("O serviço não está saudável.", ex));
+                return HealthCheckResult.Unhealthy("O serviço não está saudável.", ex);
             }
-
         }
     }
 }
