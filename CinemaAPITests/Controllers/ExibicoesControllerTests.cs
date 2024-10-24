@@ -96,7 +96,7 @@ namespace CinemaAPITests.Controllers
         public async Task UpdateExibicao_ReturnsBadRequest_WhenIdMismatch()
         {
             // Arrange
-            var exibicao = new Exibicao { Id = 2 }; // ID diferente do que está na URL
+            var exibicao = new Exibicao { Id = 2 }; 
 
             // Act
             var result = await _controller.UpdateExibicao(1, exibicao);
