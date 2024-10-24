@@ -1,8 +1,7 @@
 ﻿using CinemaAPI.Models;
 using CinemaAPI.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+
 
 namespace CinemaAPI.Controllers
 {

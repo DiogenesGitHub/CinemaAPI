@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CinemaAPITests.Repositories
+namespace CinemaAPITests.Services
 {
-    internal class ExibicaoRepositoryTests
+    internal class SessoesServiceTests
     {
     }
 }
